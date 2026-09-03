@@ -12,6 +12,7 @@ import TriageDashboard from "./pages/TriageDashboard";
 import ReportDetail from "./pages/ReportDetail";
 import Incidents from "./pages/Incidents";
 import IncidentDetail from "./pages/IncidentDetail";
+import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -31,6 +32,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <TriageDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute roles={["admin"]}>
+                <AdminDashboard />
               </ProtectedRoute>
             }
           />

@@ -65,7 +65,7 @@ export default function IncidentDetail() {
           </Link>
           <h1>{incident.name}</h1>
         </div>
-        <div style={{ display: "flex", gap: 10 }}>
+        <div className="detail-statuses">
           <PriorityBadge priority={incident.severity_level} />
           <span className="badge badge-neutral">
             <span className="badge-dot" />
@@ -80,7 +80,7 @@ export default function IncidentDetail() {
           <div className="stack" style={{ gap: 12 }}>
             {(incident.reports || []).map((report) => (
               <Link key={report.id} to={`/reports/${report.id}`} style={{ textDecoration: "none" }}>
-                <div className="glass" style={{ padding: "16px 18px", display: "flex", justifyContent: "space-between", gap: 12, alignItems: "center" }}>
+                <div className="glass incident-report-row">
                   <div>
                     <p style={{ fontWeight: 600, marginBottom: 4 }}>{CATEGORY_LABELS[report.category] || report.category}</p>
                     <p style={{ fontSize: "0.84rem", color: "#5c6b85" }}>{formatDateTime(report.created_at)}</p>

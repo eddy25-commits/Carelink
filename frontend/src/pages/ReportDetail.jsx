@@ -126,7 +126,7 @@ export default function ReportDetail() {
           </Link>
           <h1>{t("reportDetail.reportHeading", { token: report.report_token })}</h1>
         </div>
-        <div style={{ display: "flex", gap: 10 }}>
+        <div className="detail-statuses">
           <PriorityBadge priority={report.priority_level} />
           <StatusBadge status={report.status} />
         </div>
@@ -137,7 +137,7 @@ export default function ReportDetail() {
           <GlassCard>
             <h3 style={{ marginBottom: 16 }}>{t("reportDetail.detailsHeading")}</h3>
             <p style={{ marginBottom: 20, color: "var(--navy-900)" }}>{report.description}</p>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, fontSize: "0.9rem" }}>
+            <div className="report-info-grid">
               <Info label={t("reportDetail.categoryLabel")} value={CATEGORY_LABELS[report.category] || report.category} />
               <Info label={t("reportDetail.peopleAffectedLabel")} value={report.affected_count} />
               <Info label={t("reportDetail.severityScoreLabel")} value={t("reportDetail.severityScoreValue", { score: report.severity_score })} />
@@ -185,7 +185,7 @@ export default function ReportDetail() {
               ))}
             </div>
 
-            <div style={{ marginTop: 20, display: "flex", gap: 10 }}>
+            <div className="comment-form">
               <input
                 type="text"
                 className="input"

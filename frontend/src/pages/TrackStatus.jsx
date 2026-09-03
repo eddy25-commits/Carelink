@@ -184,7 +184,7 @@ export default function TrackStatus() {
 
 function DetailRow({ label, value }) {
   return (
-    <div style={{ display: "flex", justifyContent: "space-between", gap: 12, fontSize: "0.92rem" }}>
+    <div className="status-detail-row">
       <span style={{ color: "#7c8aa5" }}>{label}</span>
       <span style={{ fontWeight: 600 }}>{value}</span>
     </div>

@@ -1,3 +1,170 @@
+.admin-page {
+  --admin-line: rgba(36, 76, 128, 0.14);
+}
+
+.admin-kicker {
+  color: var(--blue-500);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.admin-stats {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 28px auto 38px;
+  max-width: 1180px;
+}
+
+.admin-stat {
+  border-top: 3px solid var(--blue-400);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.admin-stat span { color: #5c6b85; font-size: 0.82rem; }
+.admin-stat strong { color: var(--navy-900); font-family: var(--font-display); font-size: 2rem; }
+.admin-stat-green { border-top-color: var(--state-low); }
+.admin-stat-amber { border-top-color: var(--state-high); }
+.admin-stat-red { border-top-color: var(--state-critical); }
+
+.admin-grid {
+  display: grid;
+  gap: 42px;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+  margin: 0 auto;
+  max-width: 1180px;
+}
+.admin-section-heading { align-items: end; display: flex; justify-content: space-between; margin-bottom: 14px; }
+.admin-section-heading h2 { color: var(--navy-900); font-family: var(--font-display); font-size: 1.25rem; margin: 0 0 4px; }
+.admin-section-heading span { color: #71809a; font-size: 0.8rem; }
+.admin-filter { max-width: 180px; padding: 9px 12px; }
+.admin-report-list, .admin-user-list { display: flex; flex-direction: column; gap: 10px; }
+.admin-report-row { align-items: center; background: rgba(255, 255, 255, 0.7); border: 1px solid var(--admin-line); border-radius: var(--radius-sm); color: inherit; display: flex; justify-content: space-between; padding: 16px 18px; text-decoration: none; transition: transform 0.16s ease, box-shadow 0.16s ease; }
+.admin-report-row:hover { box-shadow: var(--glass-shadow-soft); transform: translateY(-2px); }
+.admin-report-labels { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 9px; }
+.admin-report-row strong { color: var(--navy-900); font-family: var(--font-display); }
+.admin-report-row p, .admin-user-row p { color: #71809a; font-size: 0.82rem; margin: 5px 0 0; }
+.admin-report-arrow { color: var(--blue-500); font-size: 1.3rem; }
+.admin-user-row { align-items: center; border-bottom: 1px solid var(--admin-line); display: flex; gap: 11px; padding: 12px 0; }
+.admin-user-row:last-child { border-bottom: 0; }
+.admin-user-avatar { align-items: center; background: var(--blue-50); border-radius: 50%; color: var(--blue-700); display: flex; flex: 0 0 34px; font-family: var(--font-display); font-weight: 700; height: 34px; justify-content: center; }
+.admin-user-row strong { color: var(--navy-900); font-size: 0.9rem; }
+.admin-user-role { margin-left: auto; text-align: right; }
+.admin-user-role span { color: var(--blue-700); display: block; font-size: 0.75rem; font-weight: 700; text-transform: capitalize; }
+.admin-user-role small { color: #71809a; font-size: 0.72rem; }
+.admin-pagination { align-items: center; display: flex; gap: 14px; justify-content: center; margin-top: 18px; }
+.admin-pagination span { color: #71809a; font-size: 0.8rem; }
+.admin-empty { color: #71809a; margin: 0; padding: 16px 0; }
+
+.detail-statuses {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.report-info-grid {
+  display: grid;
+  font-size: 0.9rem;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.comment-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.comment-form .input {
+  min-width: 0;
+}
+
+.incident-report-row {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 16px 18px;
+}
+
+.incident-report-row > div:first-child {
+  min-width: 0;
+}
+
+.incident-report-row p {
+  overflow-wrap: anywhere;
+}
+
+.status-detail-row {
+  align-items: flex-start;
+  display: flex;
+  font-size: 0.92rem;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.status-detail-row > span:last-child {
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+@media (max-width: 800px) {
+  .admin-stats { grid-template-columns: repeat(2, 1fr); }
+  .admin-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .admin-stats { gap: 9px; margin-top: 20px; }
+  .admin-stat { padding: 16px; }
+  .admin-stat strong { font-size: 1.6rem; }
+  .admin-section-heading { align-items: stretch; flex-direction: column; gap: 10px; }
+  .admin-filter { max-width: none; }
+}
+
+@media (max-width: 560px) {
+  .detail-statuses {
+    justify-content: flex-start;
+  }
+
+  .report-info-grid {
+    gap: 13px;
+    grid-template-columns: 1fr;
+  }
+
+  .comment-form {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .comment-form .btn {
+    width: 100%;
+  }
+
+  .incident-report-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .incident-report-row .badge {
+    align-self: flex-start;
+  }
+
+  .status-detail-row {
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .status-detail-row > span:last-child {
+    text-align: left;
+  }
+}
 /* ============================================================
    Triage dashboard: the priority pulse bar is this app's
    signature element, a live, glanceable read of the queue.

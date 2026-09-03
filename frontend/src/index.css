@@ -230,3 +230,22 @@ ul {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--blue-300);
 }
+
+@media (max-width: 560px) {
+  .page-shell {
+    padding: 0 14px 52px;
+  }
+
+  .page-header {
+    align-items: flex-start;
+    padding: 30px 0 22px;
+  }
+
+  .page-header > * {
+    max-width: 100%;
+  }
+
+  .page-header h1 {
+    overflow-wrap: anywhere;
+  }
+}

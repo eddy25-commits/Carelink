@@ -116,6 +116,15 @@
 }
 
 @media (max-width: 860px) {
+  .navbar-wrap {
+    padding: 10px 12px 0;
+  }
+
+  .navbar {
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
   .navbar-links {
     display: none;
   }
@@ -124,6 +133,30 @@
   }
   .navbar-signin {
     display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .navbar-actions {
+    gap: 4px;
+  }
+
+  .navbar-actions > .navbar-lang,
+  .navbar-actions > .btn-ghost {
+    display: none;
+  }
+
+  .navbar-user {
+    gap: 6px;
+  }
+
+  .navbar-user .btn {
+    padding: 8px 9px;
+    font-size: 0.76rem;
+  }
+
+  .navbar-toggle {
+    display: flex;
   }
 }
 

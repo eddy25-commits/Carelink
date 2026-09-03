@@ -112,6 +112,16 @@
   padding: 20px 24px;
 }
 
+@media (max-width: 560px) {
+  .card {
+    padding: 20px 16px;
+  }
+
+  .card-tight {
+    padding: 16px;
+  }
+}
+
 /* ---------- Badges (status and priority) ---------- */
 .badge {
   display: inline-flex;

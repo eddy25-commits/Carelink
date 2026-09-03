@@ -53,6 +53,7 @@ export default function Navbar() {
       ? [
           { to: "/dashboard", label: t("nav.triageQueue") },
           { to: "/incidents", label: t("nav.incidents") },
+          ...(worker?.role === "admin" ? [{ to: "/admin", label: t("nav.admin") }] : []),
         ]
       : []),
   ];

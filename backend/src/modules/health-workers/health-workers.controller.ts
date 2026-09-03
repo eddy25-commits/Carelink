@@ -5,8 +5,16 @@ import { HealthWorkerRole } from "../../types/domain";
 
 export const healthWorkersController = {
   list: asyncHandler(async (req: Request, res: Response) => {
-    const { district, role } = req.query as { district?: string; role?: HealthWorkerRole };
-    const workers = await healthWorkersRepository.list({ district, role, isActive: true });
+    const { district, role, includeInactive } = req.query as {
+      district?: string;
+      role?: HealthWorkerRole;
+      includeInactive?: string;
+    };
+    const workers = await healthWorkersRepository.list({
+      district,
+      role,
+      isActive: req.user?.role === "admin" && includeInactive === "true" ? undefined : true,
+    });
     const publicWorkers = workers.map(({ password_hash: _password_hash, ...rest }) => rest);
     res.status(200).json({ data: publicWorkers });
   }),
