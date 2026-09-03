@@ -8,19 +8,41 @@ export default function Landing() {
   return (
     <div className="page-shell">
       <section className="hero">
-        <span className="hero-eyebrow">
-          <span className="hero-live-dot" aria-hidden="true" />
-          {t("landing.eyebrow")}
-        </span>
-        <h1>{t("landing.heading")}</h1>
-        <p>{t("landing.subheading")}</p>
-        <div className="hero-actions">
-          <Link to="/report" className="btn btn-primary">
-            {t("landing.reportCta")}
-          </Link>
-          <Link to="/track" className="btn btn-secondary">
-            {t("landing.trackCta")}
-          </Link>
+        <div className="hero-bubbles" aria-hidden="true">
+          <span className="hero-bubble hero-bubble-1" />
+          <span className="hero-bubble hero-bubble-2" />
+          <span className="hero-bubble hero-bubble-3" />
+          <span className="hero-bubble hero-bubble-4" />
+          <span className="hero-bubble hero-bubble-5" />
+        </div>
+
+        <div className="hero-inner">
+          <div className="hero-copy">
+            <span className="hero-eyebrow">
+              <span className="hero-live-dot" aria-hidden="true" />
+              {t("landing.eyebrow")}
+            </span>
+            <h1>{t("landing.heading")}</h1>
+            <p>{t("landing.subheading")}</p>
+            <div className="hero-actions">
+              <Link to="/report" className="btn btn-primary">
+                {t("landing.reportCta")}
+              </Link>
+              <Link to="/track" className="btn btn-secondary">
+                {t("landing.trackCta")}
+              </Link>
+            </div>
+          </div>
+
+          <div className="hero-media">
+            <div className="hero-media-glow" aria-hidden="true" />
+            <img
+              className="hero-media-img"
+              src="/images/hero-health-worker.jpg"
+              alt="A community health worker in a white coat with a stethoscope, ready to help"
+              loading="eager"
+            />
+          </div>
         </div>
       </section>
 
