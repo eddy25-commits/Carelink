@@ -14,10 +14,10 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "migrate:make": "knex migrate:make --knexfile src/db/knexfile.ts",
-    "migrate:latest": "knex migrate:latest --knexfile src/db/knexfile.ts",
-    "migrate:rollback": "knex migrate:rollback --knexfile src/db/knexfile.ts",
-    "seed:run": "knex seed:run --knexfile src/db/knexfile.ts"
+    "migrate:make": "tsx ./node_modules/.bin/knex migrate:make --knexfile src/db/knexfile.ts",
+    "migrate:latest": "tsx ./node_modules/.bin/knex migrate:latest --knexfile src/db/knexfile.ts",
+    "migrate:rollback": "tsx ./node_modules/.bin/knex migrate:rollback --knexfile src/db/knexfile.ts",
+    "seed:run": "tsx ./node_modules/.bin/knex seed:run --knexfile src/db/knexfile.ts"
   },
   "dependencies": {
     "@sentry/node": "^8.9.2",

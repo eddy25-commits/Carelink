@@ -16,6 +16,7 @@ COPY --from=build /app/dist ./dist
 COPY package.json ./
 COPY src/db/migrations ./src/db/migrations
 COPY src/db/seeds ./src/db/seeds
+COPY src/db/knexfile.ts ./src/db/knexfile.ts
 
 EXPOSE 4000
 CMD ["node", "dist/server.js"]
