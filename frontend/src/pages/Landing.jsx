@@ -38,7 +38,7 @@ export default function Landing() {
             <div className="hero-media-glow" aria-hidden="true" />
             <img
               className="hero-media-img"
-              src="/images/hero-health-worker.jpg"
+              src="/hero-health-worker.jpg"
               alt="A community health worker in a white coat with a stethoscope, ready to help"
               loading="eager"
             />
