@@ -1,0 +1,199 @@
+/* ============================================================
+   Triage dashboard: the priority pulse bar is this app's
+   signature element, a live, glanceable read of the queue.
+   ============================================================ */
+
+.pulse-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 700px) {
+  .pulse-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pulse-pill {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 20px 22px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-fill);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+  overflow: hidden;
+}
+
+.pulse-pill:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glass-shadow-soft);
+}
+
+.pulse-active {
+  box-shadow: 0 0 0 2px var(--blue-400), var(--glass-shadow);
+}
+
+.pulse-count {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy-900);
+}
+
+.pulse-label {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6b7a99;
+}
+
+.pulse-critical .pulse-label {
+  color: var(--state-critical);
+}
+.pulse-high .pulse-label {
+  color: #b5771c;
+}
+.pulse-medium .pulse-label {
+  color: var(--blue-600);
+}
+.pulse-low .pulse-label {
+  color: var(--state-low);
+}
+
+.pulse-ring {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--state-critical);
+  box-shadow: 0 0 0 0 rgba(226, 88, 90, 0.6);
+  animation: pulseGlow 1.8s ease-out infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(226, 88, 90, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(226, 88, 90, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(226, 88, 90, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-ring {
+    animation: none;
+  }
+}
+
+/* ---------- Report rows ---------- */
+.report-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+@media (max-width: 640px) {
+  .report-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .report-row-due {
+    align-self: flex-start;
+  }
+}
+
+.report-row:hover {
+  transform: translateX(3px);
+  box-shadow: var(--glass-shadow);
+}
+
+.report-row-main {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.report-row-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.report-row-category {
+  font-size: 0.8rem;
+  color: #7c8aa5;
+  font-weight: 600;
+}
+
+.report-row-description {
+  color: var(--navy-900);
+  font-size: 0.95rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 640px;
+}
+
+@media (max-width: 640px) {
+  .report-row-description {
+    max-width: 78vw;
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+}
+
+.report-row-meta {
+  font-size: 0.78rem;
+  color: #94a3c2;
+}
+
+.report-row-due {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  color: var(--blue-700);
+  background: var(--blue-50);
+  white-space: nowrap;
+}
+
+.due-overdue {
+  color: #8a2b2c;
+  background: rgba(226, 88, 90, 0.14);
+}
+
+/* ---------- Activity timeline ---------- */
+.timeline-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--blue-400);
+  margin-top: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px var(--blue-50);
+}
