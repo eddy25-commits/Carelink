@@ -4,7 +4,7 @@
 
 databases:
   - name: carelink-db
-    plan: starter
+    plan: basic-256mb
     postgresMajorVersion: "16"
     # Render Postgres supports enabling PostGIS (used for outbreak/incident clustering).
     # The app's own first migration runs `CREATE EXTENSION IF NOT EXISTS postgis`, so no
