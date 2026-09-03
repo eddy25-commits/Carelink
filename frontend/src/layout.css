@@ -488,6 +488,11 @@
     max-width: 260px;
   }
 
+  .hero-media {
+    order: -1;
+    margin-bottom: 6px;
+  }
+
   .hero-bubble-3 {
     width: 90px;
     height: 90px;
